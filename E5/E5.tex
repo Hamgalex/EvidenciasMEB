@@ -1,0 +1,166 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter this block of commands.  If you're proficient at LaTeX, you may include additional packages, create macros, etc. immediately below this block of commands, but make sure to NOT alter the header, margin, and comment settings here. 
+\documentclass[12pt]{article}
+ \usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts, enumitem, fancyhdr, color, comment, graphicx, environ}
+\pagestyle{fancy}
+\setlength{\headheight}{65pt}
+\newenvironment{problem}[2][Problema]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{sol}
+    {\emph{Solución:}
+    }
+    {
+    }
+\specialcomment{com}{ \color{blue} \textbf{Comment:} }{\color{black}} %for instructor comments while grading
+\NewEnviron{probscore}{\marginpar{ \color{blue} \tiny Problem Score: \BODY \color{black} }}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\lhead{Héctor Alejandro Márquez González}  %replace with your name
+\rhead{Grupo 002 \\ 1989936} %replace XYZ with the homework course number, semester (e.g. ``Spring 2019"), and assignment number.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter this block.
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%Solutions to problems go below.  Please follow the guidelines from https://www.overleaf.com/read/sfbcjxcgsnsk/
+
+
+%Copy the following block of text for each problem in the assignment.
+\begin{problem}{I} 
+Sea una muestra aleatoria de tamaño n de una población con densidad\\ $f(x|\alpha)=e^{-(x-\alpha)}$ para $x>\alpha$. Encontrar el estimador de momentos de $\alpha$.
+\end{problem}
+\begin{sol}
+
+Usaremos el método de momentos para encontrar un estimador de $\alpha$. Para esto igualaremos el primer momento muestral con el primer momento poblacional:
+
+\begin{itemize}
+
+\item Primer momento muestral:
+
+\begin{align*}
+	m_k &= \frac{1}{n} \sum_{i=1}^{n}x_i^k \\
+	m_1 &= \frac{1}{n} \sum_{i=1}^{n}x_i \\
+	m_1 &= \bar{x}
+\end{align*}
+	
+\item Primer momento poblacional:
+
+\begin{align*}
+    M_n &= E(X^n) \\
+    M_1 &= E(X) \quad \text{Como es una distribución continua, entonces} \\
+    M_1 &= E(X) = \int_{-\infty}^{\infty} x f(x) \, dx \quad \text{Como }x>\alpha \text{ entonces} \\
+    M_1 &= E(X) = \int_{\alpha}^{\infty} x f(x) \, dx = \int_{\alpha}^{\infty} xe^{-x(x-\alpha)} \, dx \\
+    &=  e^\alpha \int_{\alpha}^{\infty} xe^{-x} \, dx \quad \text{Integraremos }xe^{-x} \, dx \text{ por partes:} \\
+   \int xe^{-x} \, dx  &= -xe^{-x}- \int -e^{-x} \, dx = -xe^{-x}- \int e^{-x} \cdot - dx \\
+   \int xe^{-x} \, dx &= -xe^{-x}-e^{-x}
+\end{align*}
+Por tanto,
+\begin{align*}
+ e^\alpha \int_{\alpha}^{\infty} xe^{-x} \, dx  &= e^\alpha \left[ -xe^{-x}-e^{-x} \right]_\alpha^\infty
+\end{align*}
+Para esto tendremos que calcular $\lim_{x \to \infty} -xe^{-x}$. \pagebreak
+
+
+Debido a que tenemos una indeterminación tipo $\frac{\infty}{\infty}$ usaremos la regla de L'Hopital que nos dice:\\
+
+
+\[
+\lim_{x \to c} \frac{f(x)}{g(x)} = \lim_{x \to c} \frac{f'(x)}{g'(x)}
+\]
+
+Entonces:
+
+\begin{align*}
+\lim_{x \to \infty} -xe^{-x} &= \lim_{x \to \infty} \frac{-x}{e^{x}} = \lim_{x \to \infty} \frac{\frac{d}{dx}\left[-x \right]}{\frac{d}{dx}\left[e^{x}\right]} \\
+ &=  \lim_{x \to \infty} \frac{-1}{e^{x}} \\
+ &= 0
+\end{align*}
+
+Por tanto:
+
+\begin{align*}
+\int_{\alpha}^{\infty} xe^{-x(x-\alpha)} \, dx &= e^\alpha \left[ -xe^{-x}-e^{-x} \right]_\alpha^\infty = e^\alpha \left[ (0-0)-(-\alpha e^{-\alpha} - e^{-\alpha}) \right] \\
+&= e^\alpha(e^{-\alpha} (1+\alpha)) \\
+&= 1+\alpha \\
+M_1 &= 1+\alpha
+\end{align*}
+\end{itemize}
+
+Ahora igualaremos el primer momento muestral con el primer momento poblacional:
+\begin{align*}
+M_1 &= m_1 \\ 
+1 + \alpha &= \bar{x} \quad \text{(Despejando }\alpha\text{):} \\ 
+\alpha &= \bar{x} - 1 
+\end{align*}
+
+\textcolor{red}{%
+    Nos queda nuestro estimador: 
+    \begin{math}
+        \hat{\alpha} = \bar{x} - 1
+    \end{math}.
+}
+
+\pagebreak
+\end{sol}
+
+
+
+%Copy the following block of text for each problem in the assignment.
+\begin{problem}{II}
+Considere los siguientes datos correspondiente a una muestra aleatoria de duración en horas para determinado componente eléctrico. Suponga que la duración del componente es modelada por una distribución Weibull con parámetro de forma $\alpha=2.5$
+
+
+
+\begin{table}[h]
+    \centering % Esto centra la tabla
+    \begin{tabular}{|c|c|c|c|c|c|c|} % Define las columnas y sus alineaciones
+        \hline
+        184.2 & 116.3 & 154.1 & 98.5 & 106.2 & 126.5 & 130.7 \\ \hline
+        155.1 & 142 & 100.9 & 135 & 102.1 & 104.5 & 76.8 \\ \hline
+        130.9 & 121.2 & 102.2 & 165.1 & 190.6 & 99.5 & 89.2 \\ \hline
+    \end{tabular}
+    \label{tab:duracion} % Etiqueta para referencia en el documento
+\end{table}
+
+\begin{enumerate}[label=\alph*)] % 'a' para letras en minúscula
+    \item Indique el estimador de momentos para $\beta$
+    \item Calcule el número de horas esperado para la duración del componente eléctrico
+    \item Calcule la probabilidad de que un componente eléctrico tenga una duración mayor a 100 horas
+\end{enumerate}
+
+
+\end{problem}
+\begin{sol}
+
+Primero calcularemos el promedio, varianza y desviación estándar de la muestra:
+\begin{align*}
+\bar{x} &= \frac{1}{n} \sum_{i=1}^{n}x_i=\frac{184.2+116.3+...+99.5+89.2}{n} =  125.3143 \\
+S^2 &= \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2 \\
+&=\frac{(184.2-125.3143)^2 + (116.3-125.3143)^2 +...+(99.5-125.3143)^2 +(89.2-125.3143)^2 }{n-1}\\
+S^2 &=953.5783 \\
+S &= \sqrt{S^2}=30.88
+\end{align*}
+\begin{enumerate}[label=\alph*)] % 'a' para letras en minúscula
+    
+\item x
+\end{enumerate}
+\end{sol}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter anything below this line.
+\end{document}
