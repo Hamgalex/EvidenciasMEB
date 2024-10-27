@@ -8,3 +8,8 @@ horas <- c(184.2, 116.3, 154.1, 98.5, 106.2,
 mean(horas)
 var(horas)
 sqrt(var(horas))
+
+gamma(1.4)
+
+
+1-pweibull(100,2.5,141.2469)

@@ -153,7 +153,76 @@ S &= \sqrt{S^2}=30.88
 \end{align*}
 \begin{enumerate}[label=\alph*)] % 'a' para letras en minúscula
     
-\item x
+\item Para encontrar el estimador calcularemos el primer momento muestral y poblacional:
+\begin{itemize}
+\item Primer momento muestral:
+\begin{align*}
+	m_k &= \frac{1}{n} \sum_{i=1}^{n}x_i^k \\
+	m_1 &= \frac{1}{n} \sum_{i=1}^{n}x_i \\
+	m_1 &= \bar{x}
+\end{align*}
+
+\pagebreak
+
+\item Primer momento poblacional:
+
+\begin{align*}
+M_1 = E(X) &= \beta \cdot \Gamma(1+\frac{1}{\alpha}) \\
+ &= \beta \cdot \Gamma (1+\frac{1}{2.5}) \\
+ &= \beta \cdot \Gamma(1.4)
+\end{align*}	
+\end{itemize}
+Ahora igualaremos el primer momento muestral con el primer momento poblacional:
+\begin{align*}
+\beta \cdot \Gamma(1.4) &= \bar{x}\\
+\beta &= \frac{\bar{x}}{\Gamma(1.4)}
+\end{align*}
+Calcularemos el valor de $\Gamma(1.4)$ con R:
+\begin{figure}[h]  % 'h' significa que la figura se colocará aquí
+    \centering      % Centra la imagen
+    \includegraphics[width=0.5\textwidth]{gamma14.png} 
+\end{figure}
+Por tanto:
+\begin{align*}
+\beta &= \frac{\bar{x}}{\Gamma(1.4)}= \frac{125.3143}{0.8872}=141.2469
+\end{align*}
+\textcolor{red}{%
+    Nos queda nuestro estimador: 
+    \begin{math}
+       \hat{\beta} = 141.2469
+    \end{math}, con forma:
+    \begin{align*}
+       \hat{\beta} = \frac{\bar{x}}{\Gamma\left(1+\frac{1}{\alpha}\right)}
+    \end{align*}    
+}
+
+\pagebreak
+
+\item El valor esperado es $E(X)$, lo calcularemos:
+\begin{align*}
+E(X) &= \beta \cdot \Gamma(1+\frac{1}{\alpha})\\
+ &= \hat{\beta} \cdot \Gamma (1+\frac{1}{\alpha})\\
+ &= 141.2469 \cdot \Gamma(1+\frac{1}{2.5}) \\
+ &= 141.2469 \cdot \Gamma(1.4) = 141.2469 \cdot 0.8872 \\
+ &= 125.3142
+\end{align*} 
+
+\textcolor{red}{%
+    Por tanto, el número de horas esperado para la duración del componente eléctrico es de 125.3142 horas.  
+}
+
+\item Calcularemos con R la siguiente probabilidad:
+\begin{align*}
+	P(X>100) = 1-P(X\leq 100)
+\end{align*}
+
+\begin{figure}[h]  % 'h' significa que la figura se colocará aquí
+    \centering      % Centra la imagen
+    \includegraphics[width=0.5\textwidth]{pweibull.png} 
+\end{figure}
+\textcolor{red}{%
+    Por tanto, la probabilidad de que un componente eléctrico tenga una duración mayor a 100 horas es de 65.58%.
+}
 \end{enumerate}
 \end{sol}
 
