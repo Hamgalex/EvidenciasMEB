@@ -41,7 +41,6 @@
 Sea una muestra aleatoria de tamaño n de una población con densidad\\ $f(x|\alpha)=e^{-(x-\alpha)}$ para $x>\alpha$. Encontrar el estimador de momentos de $\alpha$.
 \end{problem}
 \begin{sol}
-
 Usaremos el método de momentos para encontrar un estimador de $\alpha$. Para esto igualaremos el primer momento muestral con el primer momento poblacional:
 
 \begin{itemize}
@@ -142,7 +141,6 @@ Considere los siguientes datos correspondiente a una muestra aleatoria de duraci
 
 \end{problem}
 \begin{sol}
-
 Primero calcularemos el promedio, varianza y desviación estándar de la muestra:
 \begin{align*}
 \bar{x} &= \frac{1}{n} \sum_{i=1}^{n}x_i=\frac{184.2+116.3+...+99.5+89.2}{n} =  125.3143 \\
@@ -224,6 +222,97 @@ E(X) &= \beta \cdot \Gamma(1+\frac{1}{\alpha})\\
     Por tanto, la probabilidad de que un componente eléctrico tenga una duración mayor a 100 horas es de 65.58%.
 }
 \end{enumerate}
+\end{sol}
+
+\pagebreak
+
+\begin{problem}{III}
+Considere los siguientes datos correspondiente a el registro de la temperatura corporal en pacientes en un hospital. Suponga que la temperatura corporal es modelada por una distribución normal con promedio 37.5°.
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        39.4 & 39.3 & 36.1 & 38.7 \\ \hline
+        37.4 & 37.9 & 38.0 & 37.7 \\ \hline
+        39.8 & 37.4 & 37.1 & 37.1 \\ \hline
+        38.0 & 39.1 & 37.0 & 37.7 \\ \hline
+        38.9 & 38.1 & 36.6 & 39.9 \\ \hline
+        38.0 & 39.3 & 37.2 & 38.2 \\ \hline
+        39.5 & 36.8 & 38.4 & 36.5 \\ \hline
+    \end{tabular}
+\end{table}
+
+\begin{enumerate}[label=\alph*)] % 'a' para letras en minúscula
+    \item 	Indique la forma y el valor del estimador de momentos para $\sigma^2$, según la muestra 
+    \item Calcule la probabilidad de que un paciente presente una temperatura mayor a 40°
+\end{enumerate}
+\end{problem}
+\begin{sol}
+Primero calcularemos la media y la varianza de la muestra:
+\begin{align*}
+\bar{x} &= \frac{1}{n}\sum_{i=1}^n x_i \\
+&= \frac{39.4+39.3+...+38.4+36.5}{n}=38.0392 \\
+S^2 &= \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})^2 \\
+&=\frac{(39.4-38.0392)^2 + (39.3-38.0392)^2 +...+(38.4-38.0392)^2 +(36.5-38.0392)^2 }{n-1}\\
+S^2 &=1.1313 
+\end{align*}
+
+\begin{enumerate}[label=\alph*)] % 'a' para letras en minúscula
+    \item Para calcular el estimador de $\sigma^2$ usaremos el método de momentos igualando los momentos muestrales a los poblacionales:
+    \begin{itemize}
+
+\item Primer momento muestral:
+\begin{align*}
+m_1&=\frac{1}{n}\sum_{i=1}^nx_i\\
+m_1&=\bar{x}
+\end{align*}
+
+\item Segundo momento muestral:
+\begin{align*}
+m_2 &= \frac{1}{n}\sum_{i=1}^nx_i^2
+\end{align*}
+
+\pagebreak
+    
+\item Primer momento poblacional:
+Debido a que es una distribución normal:
+\begin{align*}
+M_1=E(X) =\mu
+\end{align*}
+Igualaremos el primer momento muestral y el poblacional:
+\begin{align*}
+M_1 &= m_1\\
+\mu &= \bar{x} \tag{1}\\ 
+\end{align*}
+Por tanto $\hat{\mu} = \bar{x}$.
+\item Segundo momento poblacional:\\
+Usando el teorema que nos dice $\sigma^2 = E(X^2)-[E(X)]^2$ tenemos:
+\begin{align*}
+M_2 &= E(X^2)=\sigma^2+[E(X)]^2\\
+&= \sigma^2 + \mu^2
+\end{align*}
+Igualaremos el segundo momento muestral y el poblacional:
+\begin{align*}
+M_2 &= m_2\\
+\sigma^2+\mu^2 &= \frac{1}{n}\sum_{i=1}^nx_i^2 \\
+\sigma^2 &=  \frac{1}{n}\sum_{i=1}^nx_i^2-\mu^2 \tag{2}
+\end{align*}
+Pero sabemos que nuestro estimador de $\mu$ es $\bar{x}$, por tanto luego de resolver el sistema de ecuaciones de (1) y (2) nos queda:
+\begin{align*}
+\hat{\sigma}^2 &=  \frac{1}{n}\sum_{i=1}^nx_i^2-\bar{x}^2
+\end{align*}
+Calcularemos el valor con R:
+
+
+    
+    
+    \end{itemize}
+   
+    
+    
+    \item  f
+\end{enumerate}
+
 \end{sol}
 
 
