@@ -13,3 +13,22 @@ gamma(1.4)
 
 
 1-pweibull(100,2.5,141.2469)
+
+#3
+temperatura <- c(39.4, 39.3, 36.1, 38.7, 
+           37.4, 37.9, 38.0, 37.7, 
+           39.8, 37.4, 37.1, 37.1, 
+           38.0, 39.1, 37.0, 37.7, 
+           38.9, 38.1, 36.6, 39.9, 
+           38.0, 39.3, 37.2, 38.2, 
+           39.5, 36.8, 38.4, 36.5)
+sum(temperatura^2)/length(temperatura)-37.5^2
+
+sum(temperatura)/length(temperatura)
+
+
+mean(datos)
+var(datos)
+
+
+1-pnorm(40,37.5,sqrt(41.8282))

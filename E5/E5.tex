@@ -219,7 +219,7 @@ E(X) &= \beta \cdot \Gamma(1+\frac{1}{\alpha})\\
     \includegraphics[width=0.5\textwidth]{pweibull.png} 
 \end{figure}
 \textcolor{red}{%
-    Por tanto, la probabilidad de que un componente eléctrico tenga una duración mayor a 100 horas es de 65.58%.
+    Por tanto, la probabilidad de que un componente eléctrico tenga una duración mayor a 100 horas es de 65.58\%.
 }
 \end{enumerate}
 \end{sol}
@@ -258,14 +258,8 @@ S^2 &=1.1313
 \end{align*}
 
 \begin{enumerate}[label=\alph*)] % 'a' para letras en minúscula
-    \item Para calcular el estimador de $\sigma^2$ usaremos el método de momentos igualando los momentos muestrales a los poblacionales:
+    \item Para calcular el estimador de $\sigma^2$ usaremos el método de momentos igualando el segundo momento muestral y el segundo momento poblacional.
     \begin{itemize}
-
-\item Primer momento muestral:
-\begin{align*}
-m_1&=\frac{1}{n}\sum_{i=1}^nx_i\\
-m_1&=\bar{x}
-\end{align*}
 
 \item Segundo momento muestral:
 \begin{align*}
@@ -273,18 +267,7 @@ m_2 &= \frac{1}{n}\sum_{i=1}^nx_i^2
 \end{align*}
 
 \pagebreak
-    
-\item Primer momento poblacional:
-Debido a que es una distribución normal:
-\begin{align*}
-M_1=E(X) =\mu
-\end{align*}
-Igualaremos el primer momento muestral y el poblacional:
-\begin{align*}
-M_1 &= m_1\\
-\mu &= \bar{x} \tag{1}\\ 
-\end{align*}
-Por tanto $\hat{\mu} = \bar{x}$.
+ 
 \item Segundo momento poblacional:\\
 Usando el teorema que nos dice $\sigma^2 = E(X^2)-[E(X)]^2$ tenemos:
 \begin{align*}
@@ -295,22 +278,43 @@ Igualaremos el segundo momento muestral y el poblacional:
 \begin{align*}
 M_2 &= m_2\\
 \sigma^2+\mu^2 &= \frac{1}{n}\sum_{i=1}^nx_i^2 \\
-\sigma^2 &=  \frac{1}{n}\sum_{i=1}^nx_i^2-\mu^2 \tag{2}
+\hat{\sigma}^2 &=  \frac{1}{n}\sum_{i=1}^nx_i^2-\mu^2
 \end{align*}
-Pero sabemos que nuestro estimador de $\mu$ es $\bar{x}$, por tanto luego de resolver el sistema de ecuaciones de (1) y (2) nos queda:
-\begin{align*}
-\hat{\sigma}^2 &=  \frac{1}{n}\sum_{i=1}^nx_i^2-\bar{x}^2
-\end{align*}
-Calcularemos el valor con R:
+Calcularemos el valor en R, y en el cual ya conocemos el valor de la media poblacional.\\
 
+\begin{figure}[h]  % 'h' significa que la figura se colocará aquí
+    \centering      % Centra la imagen
+    \includegraphics[width=0.5\textwidth]{temp.png} 
+\end{figure}
 
-    
+ \textcolor{red}{%
+    Por tanto, el valor del estimador de momentos para $\hat{\sigma}^2 = 41.8282$. Con forma:
+  \begin{align*}
+  \hat{\sigma}^2 &=  \frac{1}{n}\sum_{i=1}^nx_i^2-\mu^2
+  \end{align*}
+}
+   \pagebreak
+   
+  
     
     \end{itemize}
    
     
     
-    \item  f
+   \item Calcularemos con R la siguiente probabilidad:
+   \begin{align*}
+   P(X>40) = 1-P(X\leq40)
+   \end{align*}
+   \begin{figure}[h]  % 'h' significa que la figura se colocará aquí
+    \centering      % Centra la imagen
+    \includegraphics[width=0.5\textwidth]{mas40.png} 
+\end{figure}
+\\
+ 
+\textcolor{red}{%
+    Por tanto la probabilidad de que un paciente presente una temperatura mayor a 40° es de 34.95\%.
+}
+ 
 \end{enumerate}
 
 \end{sol}
