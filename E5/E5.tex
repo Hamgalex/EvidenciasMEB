@@ -1,0 +1,110 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter this block of commands.  If you're proficient at LaTeX, you may include additional packages, create macros, etc. immediately below this block of commands, but make sure to NOT alter the header, margin, and comment settings here. 
+\documentclass[12pt]{article}
+ \usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb,amsfonts, enumitem, fancyhdr, color, comment, graphicx, environ,array}
+\usepackage[labelformat=empty]{caption}
+\pagestyle{fancy}
+\setlength{\headheight}{65pt}
+\newenvironment{problem}[2][Problema]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{sol}
+    {\emph{Solución:}
+    }
+    {
+    }
+\specialcomment{com}{ \color{blue} \textbf{Comment:} }{\color{black}} %for instructor comments while grading
+\NewEnviron{probscore}{\marginpar{ \color{blue} \tiny Problem Score: \BODY \color{black} }}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Fill in the appropriate information below
+\lhead{Héctor Alejandro Márquez González}  %replace with your name
+\rhead{Grupo 002 \\ 1989936} %replace XYZ with the homework course number, semester (e.g. ``Spring 2019"), and assignment number.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter this block.
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Se realizó un muestreo para comparar el nivel de glucosa en la sangre de pacientes de un hospital cuyo seguimiento está a cargo de diferente médico. Use $\alpha=0.05$. Los resultados en la siguiente tabla:
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Dr. Álvarez} & \textbf{Dr. Benítez} & \textbf{Dr. Casas} & \textbf{Dr. Domínguez} \\ \hline
+72 & 112 & 73 & 119 \\ \hline
+92 & 123 & 70 & 76 \\ \hline
+108 & 122 & 117 & 94 \\ \hline
+97 & 122 & 114 & 74 \\ \hline
+72 & 112 & 111 & 107 \\ \hline
+69 & 85 & 109 & 115 \\ \hline
+117 & 98 & 92 & 66 \\ \hline
+87 & 105 & 89 & 94 \\ \hline
+94 & 110 & 80 & 122 \\ \hline
+109 & 112 & 111 & 68 \\ \hline
+94 & 69 & 122 & 95 \\ \hline
+96 & 86 & 69 & 88 \\ \hline
+112 & 78 & 72 & 82 \\ \hline
+80 & 117 & 90 & 114 \\ \hline
+100 & 114 & 69 & 109 \\ \hline
+81 & 84 & 87 & 105 \\ \hline
+86 & 74 & 111 & 97 \\ \hline
+113 & 103 & 85 & 95 \\ \hline
+107 & 109 & 82 & 88 \\ \hline
+77 & 100 & 70 & 101 \\ \hline
+84 & & 114 & \\ \hline
+99 & & 110 & \\ \hline
+73 & & 116 & \\ \hline
+69 & & 124 & \\ \hline
+103 & & 72 & \\ \hline
+103 & & 120 & \\ \hline
+117 & & 106 & \\ \hline
+100 & & & \\ \hline
+66 & & & \\ \hline
+66 & & & \\ \hline
+84 & & & \\ \hline
+\end{tabular}
+\label{tab:glucosa}
+\end{table}
+
+\pagebreak
+
+\begin{problem}{A} 
+Se desea averiguar si el nivel promedio de glucosa en los pacientes del doctor Álvarez es considerado controlado. Si un nivel considerado normal es de entre 80 y 130 mg/dl, alto valores mayores y bajo para valores menores, controlado sería que no exceda de 130 mg/dl.
+\end{problem}
+
+\begin{sol}
+\begin{table}[h!]
+\centering
+\begin{tabular}{|>{\raggedright\arraybackslash}m{6cm}|>{\raggedright\arraybackslash}m{6cm}|}
+\hline
+ & \textbf{Prueba de Hipótesis} \\ \hline
+$H_0$ & $\mu=130$ \\ \hline
+$H_a$ & $\mu<130$ \\ \hline
+\textbf{Estadístico de Prueba} & \vspace{0.5cm}$t=\frac{\bar{x}-\mu}{\frac{S}{\sqrt{n}}}=-13.612$\vspace{0.5cm} \\ \hline
+\textbf{p valor} & $1.124e-14$ \\ \hline
+\textbf{Comparativa y conclusión respecto al rechazo de $H_0$} & Debido a que p-valor$=1.124e-14<0.05$ entonces hay suficiente evidencia para rechazar $H_0$ y aceptamos la hipótesis alternativa $H_a: \mu<130$ \\ \hline
+\textbf{Intervalo de confianza} & $(-\infty , 96.03231)$ \\ \hline
+\textbf{Conclusión en contexto del ejercicio} & Se concluye que el nivel promedio de glucosa en los pacientes del doctor Álvarez es controlado \\ \hline
+\end{tabular}
+\label{tab:hipotesis}
+\end{table}
+
+\begin{figure}[h]  % 'h' significa que la figura se colocará aquí
+    \centering      % Centra la imagen
+    \includegraphics[width=0.5\textwidth]{a.png} 
+    \caption{Código en R del ejercicio A}
+\end{figure}
+
+\end{sol}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Do not alter anything below this line.
+\end{document}
