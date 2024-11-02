@@ -75,7 +75,13 @@ Se realizó un muestreo para comparar el nivel de glucosa en la sangre de pacien
 \end{table}
 
 \pagebreak
-
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+%--------------------------------------------A--------------------------------------
 \begin{problem}{A} 
 Se desea averiguar si el nivel promedio de glucosa en los pacientes del doctor Álvarez es considerado controlado. Si un nivel considerado normal es de entre 80 y 130 mg/dl, alto valores mayores y bajo para valores menores, controlado sería que no exceda de 130 mg/dl.
 \end{problem}
@@ -87,12 +93,12 @@ Se desea averiguar si el nivel promedio de glucosa en los pacientes del doctor �
 \hline
  & \textbf{Prueba de Hipótesis} \\ \hline
 $H_0$ & $\mu=130$ \\ \hline
-$H_a$ & $\mu<130$ \\ \hline
+$H_a$ & $\mu\neq130$ \\ \hline
 \textbf{Estadístico de Prueba} & \vspace{0.5cm}$t=\frac{\bar{x}-\mu}{\frac{S}{\sqrt{n}}}=-13.612$\vspace{0.5cm} \\ \hline
-\textbf{p valor} & $1.124e-14$ \\ \hline
-\textbf{Comparativa y conclusión respecto al rechazo de $H_0$} & Debido a que p-valor$=1.124e-14<0.05$ entonces hay suficiente evidencia para rechazar $H_0$ y aceptamos la hipótesis alternativa $H_a: \mu<130$ \\ \hline
-\textbf{Intervalo de confianza} & $(-\infty , 96.03231)$ \\ \hline
-\textbf{Conclusión en contexto del ejercicio} & Se concluye que el nivel promedio de glucosa en los pacientes del doctor Álvarez es controlado \\ \hline
+\textbf{p valor} & $2.248e-14$ \\ \hline
+\textbf{Comparativa y conclusión respecto al rechazo de $H_0$} & Debido a que p-valor$=2.248e-14<0.05$ entonces hay suficiente evidencia para rechazar $H_0$ y aceptamos la hipótesis alternativa $H_a: \mu\neq130$ \\ \hline
+\textbf{Intervalo de confianza} & $(85.37118,97.01592)$ \\ \hline
+\textbf{Conclusión en contexto del ejercicio} & Debido a que rechazamos la hipotesis nula y tenemos el intervalo de 95\% de confianza de $(85.37118,97.01592)$ se concluye que el nivel promedio de glucosa en los pacientes del doctor Álvarez es controlado, esto es, que está entre 80 y 130 mg/dl. \\ \hline
 \end{tabular}
 \label{tab:hipotesis}
 \end{table}
@@ -104,6 +110,107 @@ $H_a$ & $\mu<130$ \\ \hline
 \end{figure}
 
 \end{sol}
+
+\pagebreak
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+%--------------------------------------------B--------------------------------------
+\begin{problem}{B}
+Entre los doctores, es sabido que algunos consideran complementar los medicamentos con algunos remedios herbolarios o tés. Se desea averiguar si el nivel promedio de glucosa en los pacientes del doctor Casas es considerado mayor que el nivel de glucosa promedio en pacientes del doctor Domínguez, ya que éste último suele recomendar complementar el medicamento con dicho tipo de remedios.  Según la evidencia ¿suele ser mejor el complementar el medicamento con remedios naturales?
+
+\end{problem}
+\begin{sol}
+Primero haremos una prueba de hipótesis para ver si las varianzas son iguales, esto es:
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|>{\raggedright\arraybackslash}m{6cm}|>{\raggedright\arraybackslash}m{6cm}|}
+\hline
+ & \textbf{Prueba de Hipótesis} \\ \hline
+$H_0$ & \vspace{0.5cm}$\frac{\sigma_{\text{Casas}}^2}{\sigma_{\text{Dominguez}
+}^2}=1$ \vspace{0.5cm}\\ \hline
+$H_a$ & \vspace{0.5cm} $\frac{\sigma_{\text{Casas}}^2}{\sigma_{\text{Dominguez}
+}^2}\neq1$ \vspace{0.5cm}\\ \hline
+\textbf{Estadístico de Prueba} & \vspace{0.5cm}$F = \frac{s_\text{Casas}^2}{s_\text{Dominguez}^2}=1.1213$\vspace{0.5cm} \\ \hline
+\textbf{p valor} & $0.7732$ \\ \hline
+\textbf{Comparativa y conclusión respecto al rechazo de $H_0$} & Debido a que p-valor$=0.7732>0.05$ entonces hay suficiente evidencia para no rechazar $H_0$. \\ \hline
+\textbf{Intervalo de confianza} & $(0.4888093,2.7247331)$ \\ \hline
+\textbf{Conclusión en contexto del ejercicio} & Se concluye que no hay suficiente evidencia para decir que las varianzas son diferentes, por tanto, para analizar la eficacia de remedios naturales entre los pacientes de los doctores Casas y Dominguez usaremos nuestro estadístico de prueba $t$ donde $n_1 ,n_2 < 30$ y varianzas poblacionales desconocidas pero iguales \\ \hline
+\end{tabular}
+\label{tab:hipotesis}
+\end{table}
+\pagebreak
+
+\begin{figure}[h]  % 'h' significa que la figura se colocará aquí
+    \centering      % Centra la imagen
+    \includegraphics[width=0.8\textwidth]{b1.png} 
+    \caption{Código en R del ejercicio B para las varianzas}
+\end{figure}
+
+Ahora haremos la prueba de hipótesis para las medias, donde las varianzas son desconocidas pero iguales.
+\begin{table}[h!]
+\centering
+\begin{tabular}{|>{\raggedright\arraybackslash}m{6cm}|>{\raggedright\arraybackslash}m{6cm}|}
+\hline
+ & \textbf{Prueba de Hipótesis} \\ \hline
+$H_0$ & $\mu_{\text{Casas}}-\mu_{\text{Dominguez}}=0$ \\ \hline
+$H_a$ & $\mu_{\text{Casas}}-\mu_{\text{Dominguez}}>0$ \\ \hline
+\textbf{Estadístico de Prueba} & \vspace{0.5cm}$t=\frac{\bar{x_1}-\bar{x_2}}{S_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}=-1.4735$\vspace{0.5cm} \\ \hline
+\textbf{p valor} & $0.9262$ \\ \hline
+\textbf{Comparativa y conclusión respecto al rechazo de $H_0$} & Debido a que p-valor$=0.8707>0.05$ entonces hay suficiente evidencia para no rechazar $H_0$. \\ \hline
+\textbf{Intervalo de confianza} & $(-16.6385, \infty)$ \\ \hline
+\textbf{Conclusión en contexto del ejercicio} & Se concluye que no hay suficiente evidencia para decir que suele ser mejor el complementar el medicamento con remedios naturales. \\ \hline
+\end{tabular}
+\label{tab:hipotesis}
+\end{table}
+\pagebreak
+\begin{figure}[h]  % 'h' significa que la figura se colocará aquí
+    \centering      % Centra la imagen
+    \includegraphics[width=0.8\textwidth]{b2.png} 
+    \caption{Código en R del ejercicio B para las medias}
+\end{figure}
+\end{sol}
+\pagebreak
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+%--------------------------------------------C--------------------------------------
+\begin{problem}{C}
+El jefe de departamento desea analizar si la proporción de pacientes “no controlados” del doctor Domínguez (valores mayores a lo considerado normal) es mayor al 15\%, ya que de ser así se buscaría recomendar al doctor tomar un curso de actualización. Según la evidencia ¿es conveniente hacer la recomendación al doctor Domínguez?
+\end{problem}
+
+\begin{sol}
+En este caso $p_o=0.15$ y $n=27$ entonces se cumple que $np_o<10$ por lo que no podemos usar una aproximación normal, entonces usaremos la binomial:
+\begin{table}[h!]
+\centering
+\begin{tabular}{|>{\raggedright\arraybackslash}m{6cm}|>{\raggedright\arraybackslash}m{6cm}|}
+\hline
+ & \textbf{Prueba de Hipótesis} \\ \hline
+$H_0$ & $p=0.15$ \\ \hline
+$H_a$ & $p>0.15$ \\ \hline
+\textbf{Estadístico de Prueba} & \vspace{0.5cm}$X=5$\vspace{0.5cm} \\ \hline
+\textbf{p valor} & $0.3813$ \\ \hline
+\textbf{Comparativa y conclusión respecto al rechazo de $H_0$} & Debido a que p-valor$=0.3813>0.05$ entonces hay suficiente evidencia para no rechazar $H_0$. \\ \hline
+\textbf{Intervalo de confianza} & $(0.0759362,1.0000000)$ \\ \hline
+\textbf{Conclusión en contexto del ejercicio} & Se concluye que no hay suficiente evidencia para decir que es conveniente hacer la recomendación al doctor dominguez, pues no tenemos suficiente evidencia para decir que la proporción de pacientes no controlados del Dr. Domínguez es mayor que el 15\% \\ \hline
+\end{tabular}
+\label{tab:hipotesis}
+\end{table}
+
+\begin{figure}[h]  % 'h' significa que la figura se colocará aquí
+    \centering      % Centra la imagen
+    \includegraphics[width=0.8\textwidth]{c.png} 
+    \caption{Código en R del ejercicio C}
+\end{figure}
+\end{sol}
+\pagebreak
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Do not alter anything below this line.

@@ -3,8 +3,7 @@ alvarez <- c(72, 92, 108, 97, 72, 69, 117, 87, 94, 109, 94, 96, 112, 80, 100,
              81, 86, 113, 107, 77, 84, 99, 73, 69, 103, 103, 117, 100, 66, 66, 84)
 
 # Dr. Benítez
-benitez <- c(112, 123, 122, 122, 112, 85, 98, 105, 110, 112, 69, 86, 78, 117,
-             114, 84, 74, 103, 109, 100)
+benitez_glucose <- c(112, 123, 122, 122, 112, 85, 98, 105, 110, 112, 69, 86, 78, 117, 114, 84, 74, 103, 109, 100)
 
 # Dr. Casas
 casas <- c(73, 70, 117, 114, 111, 109, 92, 89, 80, 111, 122, 69, 72, 90, 69, 87,
@@ -14,5 +13,24 @@ casas <- c(73, 70, 117, 114, 111, 109, 92, 89, 80, 111, 122, 69, 72, 90, 69, 87,
 dominguez <- c(119, 76, 94, 74, 107, 115, 66, 94, 122, 68, 95, 88, 82, 114, 109,
                105, 97, 95, 88, 101, 110, 116, 124, 72, 120, 106)
 
+#a
+t.test(alvarez, mu = 130, alternative = "two.sided")
 
-t.test(alvarez, mu = 130, alternative = "less")
+
+#b
+var.test(casas,dominguez)
+t.test(casas,dominguez,conf.level=0.95,alternative="greater")
+x1<-mean(casas)
+x2<-mean(dominguez)
+s12<-var(casas)
+s22<-var(dominguez)
+n1<-length(casas)
+n2<-length(dominguez)
+
+sp<- sqrt(((n1-1)*s12+(n2-1)*s22)/(n1+n2-2))
+(x1-x2)/(sp*sqrt(1/n1+1/n2))
+
+#c
+numPacientesNoControladosDominguez <- sum(dominguez > 130 | dominguez < 80)
+prop.test(numPacientesNoControladosDominguez,length(dominguez),alternative="greater",p=0.15)
+
