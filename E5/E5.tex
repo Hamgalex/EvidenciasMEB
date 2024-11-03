@@ -148,7 +148,7 @@ $H_a$ & \vspace{0.5cm} $\frac{\sigma_{\text{Casas}}^2}{\sigma_{\text{Dominguez}
 \begin{figure}[h]  % 'h' significa que la figura se colocará aquí
     \centering      % Centra la imagen
     \includegraphics[width=0.8\textwidth]{b1.png} 
-    \caption{Código en R del ejercicio B para las varianzas}
+    \caption{Código en R del ejercicio B para la prueba de hipótesis de las varianzas}
 \end{figure}
 
 Ahora haremos la prueba de hipótesis para las medias, donde las varianzas son desconocidas pero iguales.
@@ -171,7 +171,7 @@ $H_a$ & $\mu_{\text{Casas}}-\mu_{\text{Dominguez}}>0$ \\ \hline
 \begin{figure}[h]  % 'h' significa que la figura se colocará aquí
     \centering      % Centra la imagen
     \includegraphics[width=0.8\textwidth]{b2.png} 
-    \caption{Código en R del ejercicio B para las medias}
+    \caption{Código en R del ejercicio B para la prueba de hipótesis de las medias}
 \end{figure}
 \end{sol}
 \pagebreak
@@ -211,6 +211,177 @@ $H_a$ & $p>0.15$ \\ \hline
 \end{figure}
 \end{sol}
 \pagebreak
+
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+%--------------------------------------------D--------------------------------------
+
+\begin{problem}{D}
+Entre los doctores, es sabido que algunos consideran que la consulta en el turno matutino y vespertino difiere. Se desea averiguar si el nivel promedio de glucosa en los pacientes del doctor Casas es considerado mayor que el nivel de glucosa promedio en pacientes del doctor Benítez, ya que consultan en turnos diferentes.  Según la evidencia ¿suele ser verdadero que el control del nivel de glucosa es diferente al considerar el turno de consulta?
+\end{problem}
+
+\begin{sol}
+Primero haremos una prueba de hipótesis con las varianzas para ver si son iguales:
+\begin{table}[h!]
+\centering
+\begin{tabular}{|>{\raggedright\arraybackslash}m{6cm}|>{\raggedright\arraybackslash}m{6cm}|}
+\hline
+ & \textbf{Prueba de Hipótesis} \\ \hline
+$H_0$ & \vspace{0.5cm}$\frac{\sigma_{\text{Casas}}^2}{\sigma_{\text{Benítez}
+}^2}=1$ \vspace{0.5cm}\\ \hline
+$H_a$ & \vspace{0.5cm} $\frac{\sigma_{\text{Casas}}^2}{\sigma_{\text{Benítez}
+}^2}\neq1$ \vspace{0.5cm}\\ \hline
+\textbf{Estadístico de Prueba} & \vspace{0.5cm}$F = \frac{s_\text{Casas}^2}{s_\text{Benítez}^2}=1.207$\vspace{0.5cm} \\ \hline
+\textbf{p valor} & $0.6851$ \\ \hline
+\textbf{Comparativa y conclusión respecto al rechazo de $H_0$} & Debido a que p-valor$=0.6851>0.05$ entonces hay suficiente evidencia para no rechazar $H_0$. \\ \hline
+\textbf{Intervalo de confianza} & $(0.4779857,3.0509609)$ \\ \hline
+\textbf{Conclusión en contexto del ejercicio} & Se concluye que no hay suficiente evidencia para decir que las varianzas son diferentes, por tanto, para analizar la el promedio de glucosa de los turnos matutino y vespertino usaremos nuestro estadístico de prueba $t$ donde $n_1 ,n_2 < 30$ y varianzas poblacionales desconocidas pero iguales \\ \hline
+\end{tabular}
+\label{tab:hipotesis}
+\end{table}
+
+\pagebreak
+\begin{figure}[h]  % 'h' significa que la figura se colocará aquí
+    \centering      % Centra la imagen
+    \includegraphics[width=0.8\textwidth]{d1.png} 
+    \caption{Código en R del ejercicio D para la prueba de hipótesis de las varianzas}
+\end{figure}
+Ahora haremos la prueba de hipótesis para las medias, donde las varianzas son desconocidas pero iguales.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|>{\raggedright\arraybackslash}m{6cm}|>{\raggedright\arraybackslash}m{6cm}|}
+\hline
+ & \textbf{Prueba de Hipótesis} \\ \hline
+$H_0$ & $\mu_{\text{Casas}}-\mu_{\text{Benitez}}=0$ \\ \hline
+$H_a$ & $\mu_{\text{Casas}}-\mu_{\text{Benitez}}\neq0$ \\ \hline
+\textbf{Estadístico de Prueba} & \vspace{0.5cm}$t=\frac{\bar{x_1}-\bar{x_2}}{S_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}=-1.8978$\vspace{0.5cm} \\ \hline
+\textbf{p valor} & $0.06533$ \\ \hline
+\textbf{Comparativa y conclusión respecto al rechazo de $H_0$} & Debido a que p-valor$=0.06533>0.05$ entonces hay suficiente evidencia para no rechazar $H_0$. \\ \hline
+\textbf{Intervalo de confianza} & $(-21.9068397,0.7068397)$ \\ \hline
+\textbf{Conclusión en contexto del ejercicio} & Se concluye que no hay suficiente evidencia para decir que el control de glucosa es diferente dependiendo del turno de la consulta. \\ \hline
+\end{tabular}
+\label{tab:hipotesis}
+\end{table}
+\pagebreak
+\begin{figure}[h]  % 'h' significa que la figura se colocará aquí
+    \centering      % Centra la imagen
+    \includegraphics[width=0.8\textwidth]{d2.png} 
+    \caption{Código en R del ejercicio D para la prueba de hipótesis de las medias}
+\end{figure}
+\end{sol}
+
+\pagebreak
+
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+%-----------------------------------------------------------------------------------
+%--------------------------------------------D--------------------------------------
+
+\begin{problem}{E}
+El doctor Álvarez recién implementa un nuevo tratamiento en sus pacientes, bajo su conformidad, les ha considerado un nuevo registro para analizar si los resultados obtenidos muestran evidencia de mejora en los niveles de glucosa. Considerando los siguientes como los registros de los mismos pacientes, pero bajo el nuevo tratamiento, ¿Existe evidencia para decir que el nuevo tratamiento muestra mejores resultados en los niveles de glucosa de los pacientes?
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|}
+\hline
+\textbf{Dr. Álvarez, prueba 2} \\ \hline
+62  \\ \hline
+90  \\ \hline
+100 \\ \hline
+95  \\ \hline
+74  \\ \hline
+70  \\ \hline
+107 \\ \hline
+87  \\ \hline
+95  \\ \hline
+109 \\ \hline
+95  \\ \hline
+90  \\ \hline
+102 \\ \hline
+81  \\ \hline
+105 \\ \hline
+80  \\ \hline
+86  \\ \hline
+103 \\ \hline
+105 \\ \hline
+70  \\ \hline
+85  \\ \hline
+98  \\ \hline
+75  \\ \hline
+68  \\ \hline
+100 \\ \hline
+100 \\ \hline
+110 \\ \hline
+101 \\ \hline
+65  \\ \hline
+66  \\ \hline
+83  \\ \hline
+\end{tabular}
+\label{tab:dr_alvarez_scores}
+\end{table}
+\end{problem}
+\begin{sol}
+Primero haremos prueba de hipótesis para saber si las varianzas son iguales o diferentes:
+\pagebreak
+\begin{table}[h!]
+\centering
+\begin{tabular}{|>{\raggedright\arraybackslash}m{6cm}|>{\raggedright\arraybackslash}m{6cm}|}
+\hline
+ & \textbf{Prueba de Hipótesis} \\ \hline
+$H_0$ & \vspace{0.5cm}$\frac{\sigma_{\text{antes}}^2}{\sigma_{\text{despues}
+}^2}=1$ \vspace{0.5cm}\\ \hline
+$H_a$ & \vspace{0.5cm} $\frac{\sigma_{\text{antes}}^2}{\sigma_{\text{despues}
+}^2}\neq1$ \vspace{0.5cm}\\ \hline
+\textbf{Estadístico de Prueba} & \vspace{0.5cm}$F = \frac{s_\text{antes}^2}{s_\text{despues}^2}= 1.187$\vspace{0.5cm} \\ \hline
+\textbf{p valor} & $0.6417$ \\ \hline
+\textbf{Comparativa y conclusión respecto al rechazo de $H_0$} & Debido a que p-valor$=0.6417>0.05$ entonces hay suficiente evidencia para no rechazar $H_0$. \\ \hline
+\textbf{Intervalo de confianza} & $( 0.5723529, 2.4618285)$ \\ \hline
+\textbf{Conclusión en contexto del ejercicio} & Se concluye que no hay suficiente evidencia para decir que las varianzas son diferentes, por tanto, para analizar si el tratamiento muestra mejora usaremos nuestro estadístico de prueba $t$ donde $n_1 ,n_2 < 30$ y varianzas poblacionales desconocidas pero iguales \\ \hline
+\end{tabular}
+\label{tab:hipotesis}
+\end{table}
+\pagebreak
+
+\begin{figure}[h]  % 'h' significa que la figura se colocará aquí
+    \centering      % Centra la imagen
+    \includegraphics[width=0.8\textwidth]{e1.png} 
+    \caption{Código en R del ejercicio E para la prueba de hipótesis de las varianzas}
+\end{figure}
+
+Ahora haremos la prueba de hipótesis para las medias, donde las varianzas son desconocidas pero iguales.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|>{\raggedright\arraybackslash}m{6cm}|>{\raggedright\arraybackslash}m{6cm}|}
+\hline
+ & \textbf{Prueba de Hipótesis} \\ \hline
+$H_0$ & $\mu_{\text{antes}}-\mu_{\text{despues}}=0$ \\ \hline
+$H_a$ & $\mu_{\text{antes}}-\mu_{\text{despues}}<0$ \\ \hline
+\textbf{Estadístico de Prueba} & \vspace{0.5cm}$t=\frac{\bar{x_1}-\bar{x_2}}{S_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}=3.0376$\vspace{0.5cm} \\ \hline
+\textbf{p valor} & $0.9975$ \\ \hline
+\textbf{Comparativa y conclusión respecto al rechazo de $H_0$} & Debido a que p-valor$=0.9975>0.05$ entonces hay suficiente evidencia para no rechazar $H_0$. \\ \hline
+\textbf{Intervalo de confianza} & $(-\infty, 3.51978)$ \\ \hline
+\textbf{Conclusión en contexto del ejercicio} & Se concluye que no hay suficiente evidencia para decir que el nuevo tratamiento muestra mejores resultados en los niveles de glucosa de los pacientes. \\ \hline
+\end{tabular}
+\label{tab:hipotesis}
+\end{table}
+\pagebreak
+
+\begin{figure}[h]  % 'h' significa que la figura se colocará aquí
+    \centering      % Centra la imagen
+    \includegraphics[width=0.8\textwidth]{e2.png} 
+    \caption{Código en R del ejercicio E para la prueba de hipótesis de las medias}
+\end{figure}
+
+
+\end{sol}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Do not alter anything below this line.
