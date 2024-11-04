@@ -87,18 +87,19 @@ Se desea averiguar si el nivel promedio de glucosa en los pacientes del doctor �
 \end{problem}
 
 \begin{sol}
+Debido a que no conocemos la desviación estandar poblacional usaremos el estadístico t de student.
 \begin{table}[h!]
 \centering
 \begin{tabular}{|>{\raggedright\arraybackslash}m{6cm}|>{\raggedright\arraybackslash}m{6cm}|}
 \hline
  & \textbf{Prueba de Hipótesis} \\ \hline
 $H_0$ & $\mu=130$ \\ \hline
-$H_a$ & $\mu\neq130$ \\ \hline
+$H_a$ & $\mu<130$ \\ \hline
 \textbf{Estadístico de Prueba} & \vspace{0.5cm}$t=\frac{\bar{x}-\mu}{\frac{S}{\sqrt{n}}}=-13.612$\vspace{0.5cm} \\ \hline
-\textbf{p valor} & $2.248e-14$ \\ \hline
-\textbf{Comparativa y conclusión respecto al rechazo de $H_0$} & Debido a que p-valor$=2.248e-14<0.05$ entonces hay suficiente evidencia para rechazar $H_0$ y aceptamos la hipótesis alternativa $H_a: \mu\neq130$ \\ \hline
-\textbf{Intervalo de confianza} & $(85.37118,97.01592)$ \\ \hline
-\textbf{Conclusión en contexto del ejercicio} & Debido a que rechazamos la hipotesis nula y tenemos el intervalo de 95\% de confianza de $(85.37118,97.01592)$ se concluye que el nivel promedio de glucosa en los pacientes del doctor Álvarez es controlado, esto es, que está entre 80 y 130 mg/dl. \\ \hline
+\textbf{p valor} & $1.124e-14$ \\ \hline
+\textbf{Comparativa y conclusión respecto al rechazo de $H_0$} & Debido a que p-valor$=1.124e-14<0.05$ entonces hay suficiente evidencia para rechazar $H_0$ y aceptamos la hipótesis alternativa $H_a: \mu<130$ \\ \hline
+\textbf{Intervalo de confianza} & $[-\infty,96.03231]$ \\ \hline
+\textbf{Conclusión en contexto del ejercicio} & Debido a que rechazamos la hipotesis nula y tenemos el intervalo de 95\% de confianza de $[-\infty,96.03231]$ se concluye que el nivel promedio de glucosa en los pacientes del doctor Álvarez es controlado, esto es, es menor que 130mg/dl \\ \hline
 \end{tabular}
 \label{tab:hipotesis}
 \end{table}
@@ -138,7 +139,7 @@ $H_a$ & \vspace{0.5cm} $\frac{\sigma_{\text{Casas}}^2}{\sigma_{\text{Dominguez}
 \textbf{Estadístico de Prueba} & \vspace{0.5cm}$F = \frac{s_\text{Casas}^2}{s_\text{Dominguez}^2}=1.1213$\vspace{0.5cm} \\ \hline
 \textbf{p valor} & $0.7732$ \\ \hline
 \textbf{Comparativa y conclusión respecto al rechazo de $H_0$} & Debido a que p-valor$=0.7732>0.05$ entonces hay suficiente evidencia para no rechazar $H_0$. \\ \hline
-\textbf{Intervalo de confianza} & $(0.4888093,2.7247331)$ \\ \hline
+\textbf{Intervalo de confianza} & $[0.4888093,2.7247331]$ \\ \hline
 \textbf{Conclusión en contexto del ejercicio} & Se concluye que no hay suficiente evidencia para decir que las varianzas son diferentes, por tanto, para analizar la eficacia de remedios naturales entre los pacientes de los doctores Casas y Dominguez usaremos nuestro estadístico de prueba $t$ donde $n_1 ,n_2 < 30$ y varianzas poblacionales desconocidas pero iguales \\ \hline
 \end{tabular}
 \label{tab:hipotesis}
@@ -161,8 +162,8 @@ $H_0$ & $\mu_{\text{Casas}}-\mu_{\text{Dominguez}}=0$ \\ \hline
 $H_a$ & $\mu_{\text{Casas}}-\mu_{\text{Dominguez}}>0$ \\ \hline
 \textbf{Estadístico de Prueba} & \vspace{0.5cm}$t=\frac{\bar{x_1}-\bar{x_2}}{S_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}=-1.4735$\vspace{0.5cm} \\ \hline
 \textbf{p valor} & $0.9262$ \\ \hline
-\textbf{Comparativa y conclusión respecto al rechazo de $H_0$} & Debido a que p-valor$=0.8707>0.05$ entonces hay suficiente evidencia para no rechazar $H_0$. \\ \hline
-\textbf{Intervalo de confianza} & $(-16.6385, \infty)$ \\ \hline
+\textbf{Comparativa y conclusión respecto al rechazo de $H_0$} & Debido a que p-valor$=0.9262>0.05$ entonces hay suficiente evidencia para no rechazar $H_0$. \\ \hline
+\textbf{Intervalo de confianza} & $[-16.6385, \infty)$ \\ \hline
 \textbf{Conclusión en contexto del ejercicio} & Se concluye que no hay suficiente evidencia para decir que suele ser mejor el complementar el medicamento con remedios naturales. \\ \hline
 \end{tabular}
 \label{tab:hipotesis}
@@ -195,11 +196,11 @@ En este caso $p_o=0.15$ y $n=27$ entonces se cumple que $np_o<10$ por lo que no 
  & \textbf{Prueba de Hipótesis} \\ \hline
 $H_0$ & $p=0.15$ \\ \hline
 $H_a$ & $p>0.15$ \\ \hline
-\textbf{Estadístico de Prueba} & \vspace{0.5cm}$X=5$\vspace{0.5cm} \\ \hline
-\textbf{p valor} & $0.3813$ \\ \hline
-\textbf{Comparativa y conclusión respecto al rechazo de $H_0$} & Debido a que p-valor$=0.3813>0.05$ entonces hay suficiente evidencia para no rechazar $H_0$. \\ \hline
-\textbf{Intervalo de confianza} & $(0.0759362,1.0000000)$ \\ \hline
-\textbf{Conclusión en contexto del ejercicio} & Se concluye que no hay suficiente evidencia para decir que es conveniente hacer la recomendación al doctor dominguez, pues no tenemos suficiente evidencia para decir que la proporción de pacientes no controlados del Dr. Domínguez es mayor que el 15\% \\ \hline
+\textbf{Estadístico de Prueba} & \vspace{0.5cm}$X=\text{número de éxitos}=0$\vspace{0.5cm} \\ \hline
+\textbf{p valor} & $1$ \\ \hline
+\textbf{Comparativa y conclusión respecto al rechazo de $H_0$} & Debido a que p-valor$=1>0.05$ entonces hay suficiente evidencia para no rechazar $H_0$. \\ \hline
+\textbf{Intervalo de confianza} & $[0,1]$ \\ \hline
+\textbf{Conclusión en contexto del ejercicio} & Se concluye que no podemos decir que es conveniente hacer la recomendación al doctor dominguez, pues no tenemos suficiente evidencia para decir que la proporción de pacientes no controlados del Dr. Domínguez es mayor que el 15\% \\ \hline
 \end{tabular}
 \label{tab:hipotesis}
 \end{table}
@@ -238,7 +239,7 @@ $H_a$ & \vspace{0.5cm} $\frac{\sigma_{\text{Casas}}^2}{\sigma_{\text{Benítez}
 \textbf{Estadístico de Prueba} & \vspace{0.5cm}$F = \frac{s_\text{Casas}^2}{s_\text{Benítez}^2}=1.207$\vspace{0.5cm} \\ \hline
 \textbf{p valor} & $0.6851$ \\ \hline
 \textbf{Comparativa y conclusión respecto al rechazo de $H_0$} & Debido a que p-valor$=0.6851>0.05$ entonces hay suficiente evidencia para no rechazar $H_0$. \\ \hline
-\textbf{Intervalo de confianza} & $(0.4779857,3.0509609)$ \\ \hline
+\textbf{Intervalo de confianza} & $[0.4779857,3.0509609]$ \\ \hline
 \textbf{Conclusión en contexto del ejercicio} & Se concluye que no hay suficiente evidencia para decir que las varianzas son diferentes, por tanto, para analizar la el promedio de glucosa de los turnos matutino y vespertino usaremos nuestro estadístico de prueba $t$ donde $n_1 ,n_2 < 30$ y varianzas poblacionales desconocidas pero iguales \\ \hline
 \end{tabular}
 \label{tab:hipotesis}
@@ -262,7 +263,7 @@ $H_a$ & $\mu_{\text{Casas}}-\mu_{\text{Benitez}}\neq0$ \\ \hline
 \textbf{Estadístico de Prueba} & \vspace{0.5cm}$t=\frac{\bar{x_1}-\bar{x_2}}{S_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}=-1.8978$\vspace{0.5cm} \\ \hline
 \textbf{p valor} & $0.06533$ \\ \hline
 \textbf{Comparativa y conclusión respecto al rechazo de $H_0$} & Debido a que p-valor$=0.06533>0.05$ entonces hay suficiente evidencia para no rechazar $H_0$. \\ \hline
-\textbf{Intervalo de confianza} & $(-21.9068397,0.7068397)$ \\ \hline
+\textbf{Intervalo de confianza} & $[-21.9068397,0.7068397]$ \\ \hline
 \textbf{Conclusión en contexto del ejercicio} & Se concluye que no hay suficiente evidencia para decir que el control de glucosa es diferente dependiendo del turno de la consulta. \\ \hline
 \end{tabular}
 \label{tab:hipotesis}
@@ -342,7 +343,7 @@ $H_a$ & \vspace{0.5cm} $\frac{\sigma_{\text{antes}}^2}{\sigma_{\text{despues}
 \textbf{Estadístico de Prueba} & \vspace{0.5cm}$F = \frac{s_\text{antes}^2}{s_\text{despues}^2}= 1.187$\vspace{0.5cm} \\ \hline
 \textbf{p valor} & $0.6417$ \\ \hline
 \textbf{Comparativa y conclusión respecto al rechazo de $H_0$} & Debido a que p-valor$=0.6417>0.05$ entonces hay suficiente evidencia para no rechazar $H_0$. \\ \hline
-\textbf{Intervalo de confianza} & $( 0.5723529, 2.4618285)$ \\ \hline
+\textbf{Intervalo de confianza} & $[0.5723529, 2.4618285]$ \\ \hline
 \textbf{Conclusión en contexto del ejercicio} & Se concluye que no hay suficiente evidencia para decir que las varianzas son diferentes, por tanto, para analizar si el tratamiento muestra mejora usaremos nuestro estadístico de prueba $t$ donde $n_1 ,n_2 < 30$ y varianzas poblacionales desconocidas pero iguales \\ \hline
 \end{tabular}
 \label{tab:hipotesis}
@@ -367,7 +368,7 @@ $H_a$ & $\mu_{\text{antes}}-\mu_{\text{despues}}<0$ \\ \hline
 \textbf{Estadístico de Prueba} & \vspace{0.5cm}$t=\frac{\bar{x_1}-\bar{x_2}}{S_p\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}=3.0376$\vspace{0.5cm} \\ \hline
 \textbf{p valor} & $0.9975$ \\ \hline
 \textbf{Comparativa y conclusión respecto al rechazo de $H_0$} & Debido a que p-valor$=0.9975>0.05$ entonces hay suficiente evidencia para no rechazar $H_0$. \\ \hline
-\textbf{Intervalo de confianza} & $(-\infty, 3.51978)$ \\ \hline
+\textbf{Intervalo de confianza} & $(-\infty, 3.51978]$ \\ \hline
 \textbf{Conclusión en contexto del ejercicio} & Se concluye que no hay suficiente evidencia para decir que el nuevo tratamiento muestra mejores resultados en los niveles de glucosa de los pacientes. \\ \hline
 \end{tabular}
 \label{tab:hipotesis}
