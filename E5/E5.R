@@ -11,8 +11,7 @@ casas <- c(73, 70, 117, 114, 111, 109, 92, 89, 80, 111, 122, 69, 72, 90, 69, 87,
 dominguez <- c(119, 76, 94, 74, 107, 115, 66, 94, 122, 68, 95, 88, 82, 114, 109, 105, 97, 95, 88, 101, 114, 110, 116, 124, 72, 120, 106)
 
 #a
-t.test(alvarez, mu = 130, alternative = "two.sided")
-
+t.test(alvarez, mu = 130, alternative = "less")
 
 #b
 var.test(casas,dominguez)
@@ -30,7 +29,7 @@ sp<- sqrt(((n1-1)*s12+(n2-1)*s22)/(n1+n2-2))
 
 #c
  
-numPacientesNoControladosDominguez <- sum(dominguez > 130 | dominguez < 80)
+numPacientesNoControladosDominguez <- sum(dominguez > 130)
 binom.test(numPacientesNoControladosDominguez, length(dominguez), p = 0.15, alternative = "greater")
 prop.test(numPacientesNoControladosDominguez,length(dominguez),alternative="greater",p=0.15)
 
