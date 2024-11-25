@@ -1,4 +1,4 @@
-# A
+# 1
 
 
 horas <- c(2, 4, 6, 8, 10, 12)
@@ -49,3 +49,32 @@ confint(modelo_exponencial)
 fitted.values(modelo_exponencial)
 estimados <- 2.012*exp(-0.0662*horas)
 lines(horas,estimados,col="purple")
+
+
+
+
+# 2
+
+library("car")
+library(olsrr)
+
+IQ <- c(112, 126, 100, 114, 112, 121, 110, 103, 111, 124)
+horas_estudio <- c(5, 13, 3, 7, 11, 9, 8, 4, 6, 2)
+puntuacion <- c(79, 97, 51, 65, 82, 93, 81, 38, 60, 86)
+
+modelo <- lm(puntuacion ~ IQ + horas_estudio)
+summary(modelo)
+
+vif_values<-vif(modelo)
+vif_values
+
+ols_step_all_possible(modelo)
+
+
+# solo iq
+modelo <- lm(puntuacion ~ IQ)
+summary(modelo)
+
+
+
+
