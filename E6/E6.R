@@ -71,10 +71,11 @@ vif_values
 ols_step_all_possible(modelo)
 
 
-# solo iq
-modelo <- lm(puntuacion ~ IQ)
-summary(modelo)
+intervalos_confianza <- confint(modelo)
+intervalos_confianza
+
+plot(fitted.values(modelo),residuals(modelo))
 
 
-
-
+puntuacion <- -124.5682 + 1.6501 * (105) + 1.4393 * (7)
+puntuacion
