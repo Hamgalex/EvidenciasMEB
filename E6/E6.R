@@ -34,8 +34,6 @@ plot(horas, cloro_residual, main = "Dispersión de Datos y Ajuste del Modelo",
      pch = 19)
 
 abline(modelo, col = "blue", lwd = 2)
-abline(modeloOrigen,col="red",lwd=2)
-
 
 # Exponencial
 
@@ -76,6 +74,13 @@ intervalos_confianza
 
 plot(fitted.values(modelo),residuals(modelo))
 
+residuales <- residuals(modelo)
 
-puntuacion <- -124.5682 + 1.6501 * (105) + 1.4393 * (7)
+mean(residuales)
+
+Box.test(residuales)
+
+ks.test(residuales,pnorm,mean=0)
+
+puntuacion <- -124.5682 + 1.6591 * (105) + 1.4393 * (7)
 puntuacion
